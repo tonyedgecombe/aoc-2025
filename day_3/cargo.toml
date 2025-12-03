@@ -1,0 +1,5 @@
+[workspace]
+resolver="3"
+members = ["common", "day_3_part_1", "day_3_part_2"]
+
+
