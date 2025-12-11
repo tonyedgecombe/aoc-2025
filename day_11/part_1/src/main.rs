@@ -10,10 +10,10 @@ fn main() {
 fn solve_part_1(input: &str) -> usize{
     let data = parse(input);
 
-    recurse(&data, "you")
+    count_paths(&data, "you")
 }
 
-fn recurse(data: &HashMap<&str, Vec<&str>>, label : &str) -> usize {
+fn count_paths(data: &HashMap<&str, Vec<&str>>, label : &str) -> usize {
     if label == "out" {
         1
     } else {
@@ -21,7 +21,7 @@ fn recurse(data: &HashMap<&str, Vec<&str>>, label : &str) -> usize {
             .get(label)
             .unwrap()
             .iter()
-            .map(|entry| recurse(data, entry))
+            .map(|entry| count_paths(data, entry))
             .sum()
     }
 }
